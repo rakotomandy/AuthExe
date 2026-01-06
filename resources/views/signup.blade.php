@@ -31,6 +31,11 @@
                 <input type="password" id="password" name="password" placeholder="********"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
             </div>
+            <div>
+                <label for="password_confirmation" class="block text-gray-700 font-medium mb-1">Confirm Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="********"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
 
             <!-- Remember Me -->
             <div class="flex items-center justify-between">
