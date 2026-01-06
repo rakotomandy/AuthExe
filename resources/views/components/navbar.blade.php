@@ -139,10 +139,8 @@
         </div>
     </div>
 </nav>
-<div class="shadow bg-gray-100 font-bold text-5xl p-2 pt-24">
-    {{ $authUser->name }}
-</div>
-<div class="bg-gray-100 p-6 ">
+
+<div class="bg-gray-100 p-6 pt-24">
 
     <div class="max-w-full overflow-x-auto bg-white rounded-xl shadow">
         <table class="min-w-full divide-y divide-gray-200">

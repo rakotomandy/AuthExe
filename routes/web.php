@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\UserRegister;
+use App\Models\AdminLogin;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserRegister;
+use App\Http\Controllers\AdminLoginController;
 
 // Route::middleware("guest")->group(function () {
 Route::get('/', function () {
@@ -20,10 +22,11 @@ Route::get("/admin-login", function () {
 
 Route::post("signup", [UserRegister::class, "register"])->name("signup");
 Route::post("login", [UserRegister::class, "login"])->name("login");
+Route::post("adminlogin", [AdminLoginController::class, "login"])->name("adminlogin");
 // });
 
-Route::get("/admin-dashboard", function () {
-    return view('admin.admin-dashboard');
+Route::middleware("auth:admin")->group(function () {
+    Route::get("/admin-dashboard", [AdminLoginController::class, "AdminDashboard"])->name("admin.dashboard");
 });
 Route::middleware("auth")->group(function () {
     Route::get("/users-dashboard", [UserRegister::class, "userDashboard"])->name("users.dashboard");
