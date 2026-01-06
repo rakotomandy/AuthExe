@@ -18,7 +18,7 @@ Route::get("/signup", function () {
 
 Route::get("/admin-login", function () {
     return view('admin.admin-login');
-});
+})->name("admin-login");
 
 Route::post("signup", [UserRegister::class, "register"])->name("signup");
 Route::post("login", [UserRegister::class, "login"])->name("login");
