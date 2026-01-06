@@ -10,8 +10,8 @@
     <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
         <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Sign up</h2>
 
-        <form action="/login" method="POST" class="space-y-5">
-
+        <form action="{{route("signup")}}" method="POST" class="space-y-5">
+            @csrf
             <!-- Name -->
             <div>
                 <label for="name" class="block text-gray-700 font-medium mb-1">Name</label>

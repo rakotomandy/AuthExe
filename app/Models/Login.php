@@ -11,6 +11,7 @@ class Login extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    protected $table = "login";
     /**
      * The attributes that are mass assignable.
      *

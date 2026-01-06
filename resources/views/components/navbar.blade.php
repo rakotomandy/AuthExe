@@ -1,3 +1,4 @@
+{{--  @props(["credential"])  --}}
 <nav class="bg-white shadow-md fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
@@ -62,6 +63,14 @@
                         <a href="#" class="block px-4 py-2 hover:bg-blue-50">Support</a>
                     </div>
                 </div>
+                <div class="group border-b border-gray-200">
+                    <form action="{{ route('logout') }}" method="POST" class="">
+                        @csrf
+                        <button class="text-black p-2 rounded bg-green-300" type="submit">
+                            Logout
+                        </button>
+                    </form>
+                </div>
 
             </div>
 
@@ -120,9 +129,20 @@
                 <a href="#" class="block py-1 hover:bg-blue-50">Support</a>
             </div>
         </details>
+        <div class="group border-b border-gray-200">
+            <form action="{{ route('logout') }}" method="POST" class="">
+                @csrf
+                <button class="text-black p-2 rounded bg-green-300" type="submit">
+                    Logout
+                </button>
+            </form>
+        </div>
     </div>
 </nav>
-<div class="bg-gray-100 p-6 pt-24">
+<div class="shadow bg-gray-100 font-bold text-5xl p-2 pt-24">
+    {{ $authUser->name }}
+</div>
+<div class="bg-gray-100 p-6 ">
 
     <div class="max-w-full overflow-x-auto bg-white rounded-xl shadow">
         <table class="min-w-full divide-y divide-gray-200">
@@ -132,9 +152,6 @@
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email
-                    </th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status
                     </th>
                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created
                         At</th>
@@ -146,12 +163,11 @@
             <!-- Table Body -->
             <tbody class="bg-white divide-y divide-gray-200">
                 <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">1</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">John Doe</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">john@example.com</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Admin</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600 font-medium">Active</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2026-01-02</td>
+                
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->id}}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->name}}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->email}}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->created_at}}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-center space-x-2">
                         <button
                             class="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">View</button>
@@ -161,24 +177,7 @@
                             class="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">Delete</button>
                     </td>
                 </tr>
-
-                <tr class="hover:bg-gray-50">
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">Jane Smith</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">jane@example.com</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">User</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600 font-medium">Inactive</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">2026-01-01</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-center space-x-2">
-                        <button
-                            class="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">View</button>
-                        <button
-                            class="px-3 py-1 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">Edit</button>
-                        <button
-                            class="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">Delete</button>
-                    </td>
-                </tr>
-
+              
                 <!-- Add more rows as needed -->
             </tbody>
         </table>

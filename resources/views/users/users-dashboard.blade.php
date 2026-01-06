@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <x-navbar />
+    <x-navbar :credential="Auth::user()" />
 @endsection
