@@ -1,4 +1,13 @@
 {{--  @props(["credential"])  --}}
+{{--  @if ($errors->any())
+    <div class="bg-red-100 text-red-700 p-4 rounded mb-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif  --}}
 <nav class="bg-white shadow-md fixed w-full z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
@@ -161,11 +170,11 @@
             <!-- Table Body -->
             <tbody class="bg-white divide-y divide-gray-200">
                 <tr class="hover:bg-gray-50">
-                
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->id}}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->name}}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->email}}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{$credential->created_at}}</td>
+
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $credential->id }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $credential->name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $credential->email }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{{ $credential->created_at }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-center space-x-2">
                         <button
                             class="px-3 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">View</button>
@@ -175,7 +184,7 @@
                             class="px-3 py-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">Delete</button>
                     </td>
                 </tr>
-              
+
                 <!-- Add more rows as needed -->
             </tbody>
         </table>

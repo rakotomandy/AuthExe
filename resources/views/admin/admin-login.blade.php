@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+    @if ($errors->any())
+        <div class="bg-red-100 text-red-700 p-4 rounded mb-4">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="bg-gray-100 flex items-center justify-center min-h-screen">
 
         <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">

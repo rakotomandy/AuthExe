@@ -22,11 +22,12 @@ Route::get("/admin-login", function () {
 
 Route::post("signup", [UserRegister::class, "register"])->name("signup");
 Route::post("login", [UserRegister::class, "login"])->name("login");
-Route::post("adminlogin", [AdminLoginController::class, "login"])->name("adminlogin");
+Route::post("/admin-login", [AdminLoginController::class, "login"])->name("adminlogin");
 // });
 
 Route::middleware("auth:admin")->group(function () {
     Route::get("/admin-dashboard", [AdminLoginController::class, "AdminDashboard"])->name("admin.dashboard");
+    Route::post("/logout", [AdminLoginController::class, "logout"])->name("logout");
 });
 Route::middleware("auth")->group(function () {
     Route::get("/users-dashboard", [UserRegister::class, "userDashboard"])->name("users.dashboard");
